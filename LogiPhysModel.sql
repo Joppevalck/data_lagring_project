@@ -8,17 +8,17 @@ CREATE TABLE instrument (
 
 CREATE TABLE parent_email (
  parent_email_id serial PRIMARY KEY,
- email VARCHAR(100)
+ email VARCHAR(100) UNIQUE
 );
 
 CREATE TABLE parent_phone (
  parent_phone_id serial PRIMARY KEY,
- phone_number VARCHAR(20)
+ phone_number VARCHAR(20) UNIQUE
 );
 
 CREATE TABLE person (
  person_id serial PRIMARY KEY,
- person_number UNIQUE VARCHAR(12) NOT NULL,
+ person_number VARCHAR(12) UNIQUE NOT NULL ,
  first_name VARCHAR(500),
  last_name VARCHAR(500),
  zip VARCHAR(5),
@@ -37,7 +37,7 @@ CREATE TABLE person_instrument (
 CREATE TABLE phone (
  person_id INT NOT NULL REFERENCES person(person_id) ON DELETE CASCADE,
  phone_id serial,
- phone_number VARCHAR(30),
+ phone_number VARCHAR(30) UNIQUE,
 
  CONSTRAINT PK_person_phone PRIMARY KEY (phone_id,person_id)
 );
@@ -53,12 +53,11 @@ CREATE TABLE school (
 );
 
 CREATE TABLE student (
- student_id serial,
+ student_id serial UNIQUE,
  person_id INT NOT NULL REFERENCES person(person_id),
   
  CONSTRAINT PK_student PRIMARY KEY (student_id,person_id)
-
-);
+ );
 
 CREATE TABLE student_application (
  student_aplication_id serial PRIMARY KEY,
@@ -85,7 +84,7 @@ CREATE TABLE student_parent_email (
  student_id INT NOT NULL REFERENCES student(student_id) ON DELETE CASCADE,
  person_id INT NOT NULL REFERENCES person(person_id) ON DELETE CASCADE,
 
- CONSTRAINT PK_student PRIMARY KEY (student_id,person_id,parent_email_id)
+ CONSTRAINT PK_student_parent_email PRIMARY KEY (student_id,person_id,parent_email_id)
 );
 
 CREATE TABLE student_parent_phone (
@@ -93,20 +92,12 @@ CREATE TABLE student_parent_phone (
  student_id INT NOT NULL REFERENCES student(student_id) ON DELETE CASCADE,
  person_id INT NOT NULL REFERENCES person(person_id) ON DELETE CASCADE,
 
- CONSTRAINT PK_student PRIMARY KEY (student_id,person_id, parent_phone_id)
-);
-
-CREATE TABLE adress (
- person_id INT NOT NULL PRIMARY REFERENCES person(person_id) ON DELETE CASCADE, 
- zip VARCHAR(5),
- street VARCHAR(500),
- city VARCHAR(500)
-
+ CONSTRAINT PK_student_parent_phone PRIMARY KEY (student_id,person_id, parent_phone_id)
 );
 
 CREATE TABLE audition (
  audition_id serial,
- student_aplication_id INT REFERENCES student_application(student_aplication_id) ON DELETE CASCADE
+ student_aplication_id INT REFERENCES student_application(student_aplication_id) ON DELETE CASCADE,
  time TIMESTAMP(0),
  result BIT(1),
 
@@ -116,13 +107,13 @@ CREATE TABLE audition (
 CREATE TABLE email (
  person_id INT NOT NULL REFERENCES person(person_id) ON DELETE CASCADE,
  email_id serial,
- email VARCHAR(100),
+ email VARCHAR(100) UNIQUE,
 
  CONSTRAINT PK_student_email PRIMARY KEY (person_id, email_id)
 );
 
 CREATE TABLE instructor (
- instructor_id serial,
+ instructor_id serial UNIQUE,
  person_id INT NOT NULL REFERENCES person(person_id),
  pay_amount INT,
 
@@ -136,7 +127,7 @@ CREATE TABLE instructor_avaliablity (
  end_time TIME(0),
  date DATE,
 
- CONSTRAINT PK_instructor_person PRIMARY KEY (instructor_id, person_id)
+ CONSTRAINT PK_instructor_avaliabilty PRIMARY KEY (instructor_id, person_id)
 );
 
 CREATE TABLE lesson_pricing (
