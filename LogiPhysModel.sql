@@ -115,7 +115,6 @@ CREATE TABLE email (
 CREATE TABLE instructor (
  instructor_id serial UNIQUE,
  person_id INT NOT NULL REFERENCES person(person_id),
- pay_amount INT,
 
  CONSTRAINT PK_instructor_person PRIMARY KEY (instructor_id, person_id)
 );
@@ -215,4 +214,7 @@ CREATE TABLE rental (
  person_id INT
 );
 
+\i /host_files/PopulateData.sql
+
 COMMIT; 
+
