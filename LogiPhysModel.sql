@@ -1,5 +1,7 @@
 BEGIN;
 
+\i /hostfiles/RestartDatabase.sql
+
 CREATE TABLE instrument (
  instrument_id  serial PRIMARY KEY,
  type VARCHAR(500),
@@ -214,7 +216,7 @@ CREATE TABLE rental (
  person_id INT
 );
 
-\i /host_files/PopulateData.sql
+\i /hostfiles/PopulateData.sql
 
 COMMIT; 
 

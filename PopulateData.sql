@@ -21,19 +21,45 @@ VALUES  (DEFAULT, 2),
         (DEFAULT, 3)
         ;
 
+INSERT INTO instrument (instrument_id, type, name)
+VALUES  (DEFAULT, 'String', 'Guitar')
+        (DEFAULT, 'Keyboard', 'Piano')
+        (DEFAULT, 'Percussion', 'Drums')
+        (DEFAULT, 'String', 'Bass')
+        (DEFAULT, 'String', 'Electric guitar')
+        (DEFAULT, 'String', 'Violin')
+        (DEFAULT, 'String', 'Cello')
+        (DEFAULT, 'Woodwind', 'Flute')
+        (DEFAULT, 'Wind', 'Trumpet')
+        ;
+
+
 INSERT INTO music_lesson (music_lesson_id, price, type, level, start_time, end_time, instructor_id, person_id)
-VALUES  (DEFAULT, 150, 'individual', 'intermediate', 2020-01-08 12:00:00 , 2020-01-08 13:00:00, 1, 2),
-        (DEFAULT, 100, 'group', 'beginner', 2020-01-10 12:00:00, 2020-01-10 14:00:00, 1, 2),
-        (DEFAULT, 100, 'group', 'advanced', 2020-02-01 10:00:00, 2020-02-01 12:00:00, 2, 3),
-        (DEFAULT, 75, 'ensamble', 'advanced', 2020-02-03 16:00:00, 2020-02-03 18:00:00, 2, 3),
-        (DEFAULT, 150, 'individual', 'beginner', 2020-02-13 16:00:00, 2020-02-13 17:00:00, 1, 2),
-        (DEFAULT, 100, 'group', 'beginner', 2020-02-14 17:00:00, 2020-02-14 19:00:00, 2, 3),
-        (DEFAULT, 150, 'individual', 'beginner', 2020-02-18 18:00:00, 2020-02-18 19:00:00, 1, 2),
-        (DEFAULT, 100, 'group', 'beginner', 2020-03-03 16:00:00, 2020-03-03 18:00:00)
+VALUES  (DEFAULT, 150, 'individual', 'intermediate', '2020-01-08 12:00:00' , '2020-01-08 13:00:00', 1, 2),
+        (DEFAULT, 100, 'group', 'beginner', '2020-01-10 12:00:00', '2020-01-10 14:00:00', 1, 2),
+        (DEFAULT, 100, 'group', 'advanced', '2020-02-01 10:00:00', '2020-02-01 12:00:00', 2, 3),
+        (DEFAULT, 75, 'ensamble', 'advanced', '2020-02-03 16:00:00', '2020-02-03 18:00:00', 2, 3),
+        (DEFAULT, 150, 'individual', 'beginner', '2020-02-13 16:00:00', '2020-02-13 17:00:00', 1, 2),
+        (DEFAULT, 100, 'group', 'beginner', '2020-02-14 17:00:00', '2020-02-14 19:00:00', 2, 3),
+        (DEFAULT, 150, 'individual', 'beginner', '2020-02-18 18:00:00', '2020-02-18 19:00:00', 1, 2),
+        (DEFAULT, 100, 'group', 'beginner', '2020-03-03 16:00:00', '2020-03-03 18:00:00', 2, 3)
         ;
 
 INSERT INTO ensamble (ensamble_id, music_lesson_id, max_atendees, min_atendees, target_genre)
 VALUES  (DEFAULT, 4, 30, 10, 'punk')
         ;
 
+INSERT INTO individual_lesson (individual_lesson_id, music_lesson_id, instrument_id)
+VALUES  (DEFAULT, 1, 1),
+        (DEFAULT, 5, 4),
+        (DEFAULT, 7, 2)
+        ;
+
+INSERT INTO group_lesson (group_lesson_id, music_lesson_id, number_of_places, min_enrolled_students, instrument_id)
+VALUES  (DEFAULT, 2, 30, 20, 4),
+        (DEFAULT, 3, 25, 15, 1),
+        (DEFAULT, 6, 30, 20, 2),
+        (DEFAULT, 8, 20, 10, 9)
+        ;
+        
 COMMIT;
