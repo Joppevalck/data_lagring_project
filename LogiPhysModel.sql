@@ -208,9 +208,8 @@ CREATE TABLE instructor_ensamble_genre (
 
 CREATE TABLE rental (
  rental_id serial PRIMARY KEY,
- rental_date VARCHAR(8),
- return_date VARCHAR(8) NOT NULL,
- fee INT,
+ rental_date DATE,
+ return_date DATE NOT NULL,
  rental_instrument_id INT REFERENCES rental_instrument(rental_instrument_id),
  student_id INT,
  person_id INT
