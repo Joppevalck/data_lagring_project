@@ -26,14 +26,14 @@ VALUES  (DEFAULT, 2),
         ;
 
 INSERT INTO instrument (instrument_id, type, name)
-VALUES  (DEFAULT, 'String', 'Guitar')
-        (DEFAULT, 'Keyboard', 'Piano')
-        (DEFAULT, 'Percussion', 'Drums')
-        (DEFAULT, 'String', 'Bass')
-        (DEFAULT, 'String', 'Electric guitar')
-        (DEFAULT, 'String', 'Violin')
-        (DEFAULT, 'String', 'Cello')
-        (DEFAULT, 'Woodwind', 'Flute')
+VALUES  (DEFAULT, 'String', 'Guitar'),
+        (DEFAULT, 'Keyboard', 'Piano'),
+        (DEFAULT, 'Percussion', 'Drums'),
+        (DEFAULT, 'String', 'Bass'),
+        (DEFAULT, 'String', 'Electric guitar'),
+        (DEFAULT, 'String', 'Violin'),
+        (DEFAULT, 'String', 'Cello'),
+        (DEFAULT, 'Woodwind', 'Flute'),
         (DEFAULT, 'Wind', 'Trumpet')
         ;
 
