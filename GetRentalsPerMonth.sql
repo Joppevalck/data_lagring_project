@@ -12,4 +12,4 @@ FROM (
     ROLLUP (month),
     ROLLUP (rental_instrument.name)
 ) AS q
-ORDER BY "Count of rentals" DESC;
+ORDER BY q.count DESC;
