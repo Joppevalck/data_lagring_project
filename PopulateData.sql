@@ -10,7 +10,9 @@ VALUES  (DEFAULT, '200005254567', 'Johannes', 'Valck', '12345', 'Hejgränd 40', 
         (DEFAULT, '196705212170', 'Alexander', 'Gustavsson', '27022', 'Anders Sadelmakares Gränd 71', 'KÖPINGEBRO'),
         (DEFAULT, '199903046969', 'Wille', 'Asp', '54573', 'Södra Kroksdal 20', 'TÖREBODA'),
         (DEFAULT, '200007084200', 'Victor', 'Pettersson', '17777', 'Snubbvägen 29', 'SNUBBSTAD'),
-        (DEFAULT, '199211129999', 'Simpe', 'Pimpe', '65758', 'Sundbybrovägen 69', 'SUNDBYBERG')
+        (DEFAULT, '199211129999', 'Simpe', 'Pimpe', '65758', 'Sundbybrovägen 69', 'SUNDBYBERG'),
+        (DEFAULT, '177012171234', 'Ludwig', 'van Beethoven', '67890', 'Zentralfriedhof Wien 100', 'WIEN'),
+        (DEFAULT, '195311240007', 'James', 'Bond', '00707', 'Spystreet (00)7', 'SPYCITY')
         ;
 
 INSERT INTO student (student_id, person_id)
@@ -22,7 +24,9 @@ VALUES  (DEFAULT, 1),
     
 INSERT INTO instructor (instructor_id, person_id)
 VALUES  (DEFAULT, 2),
-        (DEFAULT, 3)
+        (DEFAULT, 3),
+        (DEFAULT, 7),
+        (DEFAULT, 8)
         ;
 
 INSERT INTO instrument (instrument_id, type, name)
@@ -73,7 +77,10 @@ VALUES  (DEFAULT, 150, 'individual', 'intermediate', '2020-01-08 12:00:00' , '20
         (DEFAULT, 150, 'individual', 'beginner', '2020-02-13 16:00:00', '2020-02-13 17:00:00', 1, 2),
         (DEFAULT, 100, 'group', 'beginner', '2020-02-14 17:00:00', '2020-02-14 19:00:00', 2, 3),
         (DEFAULT, 150, 'individual', 'beginner', '2020-02-18 18:00:00', '2020-02-18 19:00:00', 1, 2),
-        (DEFAULT, 100, 'group', 'beginner', '2020-03-03 16:00:00', '2020-03-03 18:00:00', 2, 3)
+        (DEFAULT, 100, 'group', 'beginner', '2020-03-03 16:00:00', '2020-03-03 18:00:00', 2, 3),
+        (DEFAULT, 200, 'individual', 'advanced', '2020-03-16 17:00:00', '2020-03-16 19:00:00', 3, 7),
+        (DEFAULT, 250, 'individual', 'advanced', '2020-03-17 13:00:00', '2020-03-17 15:00:00', 3, 7),
+        (DEFAULT, 100, 'ensamble', 'beginner', '2020-04-16 17:00:00', '2020-04-16 19:00:00', 4, 8)
         ;
 
 INSERT INTO ensamble (ensamble_id, music_lesson_id, max_atendees, min_atendees, target_genre)
