@@ -16,4 +16,5 @@ FROM (
     ) AS q
 GROUP BY ("First name of Instructor", "Last name"),
         "Month"
-ORDER BY "Count";
+ORDER BY "Count" DESC
+LIMIT 3;

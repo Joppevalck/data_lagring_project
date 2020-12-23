@@ -81,9 +81,12 @@ VALUES  (DEFAULT, 150, 'individual', 'intermediate', '2020-01-08 12:00:00' , '20
         (DEFAULT, 200, 'individual', 'advanced', '2020-03-16 17:00:00', '2020-03-16 19:00:00', 3, 7),
         (DEFAULT, 250, 'individual', 'advanced', '2020-03-17 13:00:00', '2020-03-17 15:00:00', 3, 7),
         (DEFAULT, 100, 'ensamble', 'beginner', '2020-04-16 17:00:00', '2020-04-16 19:00:00', 4, 8),
-        (DEFAULT, 150, 'individual', 'beginner', '2020-11-18 18:00:00', '2020-11-18 19:00:00', 1, 2),
         (DEFAULT, 100, 'group', 'beginner', '2020-11-03 16:00:00', '2020-11-03 18:00:00', 2, 3),
-        (DEFAULT, 200, 'individual', 'advanced', '2020-12-16 17:00:00', '2020-12-16 19:00:00', 3, 7)
+        (DEFAULT, 200, 'individual', 'advanced', '2020-11-16 17:00:00', '2020-11-16 19:00:00', 3, 7),
+        (DEFAULT, 150, 'individual', 'beginner', '2020-11-18 18:00:00', '2020-11-18 19:00:00', 1, 2),
+        (DEFAULT, 200, 'individual', 'advanced', '2020-12-16 17:00:00', '2020-12-16 19:00:00', 3, 7),
+        (DEFAULT, 200, 'individual', 'advanced', '2020-12-17 17:00:00', '2020-12-17 19:00:00', 3, 7),
+        (DEFAULT, 100, 'ensamble', 'beginner', '2020-12-20 17:00:00', '2020-12-20 19:00:00', 4, 8)
         ;
 
 INSERT INTO ensamble (ensamble_id, music_lesson_id, max_atendees, min_atendees, target_genre)
