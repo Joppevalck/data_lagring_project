@@ -84,13 +84,16 @@ VALUES  (DEFAULT, 150, 'individual', 'intermediate', '2020-01-08 12:00:00' , '20
         ;
 
 INSERT INTO ensamble (ensamble_id, music_lesson_id, max_atendees, min_atendees, target_genre)
-VALUES  (DEFAULT, 4, 30, 10, 'punk')
+VALUES  (DEFAULT, 4, 30, 10, 'punk'),
+        (DEFAULT, 11, 25, 15, 'soul')
         ;
 
 INSERT INTO individual_lesson (individual_lesson_id, music_lesson_id, instrument_id)
 VALUES  (DEFAULT, 1, 1),
         (DEFAULT, 5, 4),
-        (DEFAULT, 7, 2)
+        (DEFAULT, 7, 2),
+        (DEFAULT, 9, 5),
+        (DEFAULT, 10, 3)
         ;
 
 INSERT INTO group_lesson (group_lesson_id, music_lesson_id, number_of_places, min_enrolled_students, instrument_id)
