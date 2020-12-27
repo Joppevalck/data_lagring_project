@@ -1,5 +1,3 @@
-BEGIN;
-
 INSERT INTO school (school_id, max_students, min_students, min_age, zip, street, city)
 VALUES  (DEFAULT, 100, 10, 12, '42069', 'partajvägen 69', 'UMEÅ')
         ;
@@ -86,12 +84,46 @@ VALUES  (DEFAULT, 150, 'individual', 'intermediate', '2020-01-08 12:00:00' , '20
         (DEFAULT, 150, 'individual', 'beginner', '2020-11-18 18:00:00', '2020-11-18 19:00:00', 1, 2),
         (DEFAULT, 200, 'individual', 'advanced', '2020-12-16 17:00:00', '2020-12-16 19:00:00', 3, 7),
         (DEFAULT, 200, 'individual', 'advanced', '2020-12-17 17:00:00', '2020-12-17 19:00:00', 3, 7),
-        (DEFAULT, 100, 'ensamble', 'beginner', '2020-12-20 17:00:00', '2020-12-20 19:00:00', 4, 8)
+        (DEFAULT, 100, 'ensamble', 'beginner', '2020-12-20 17:00:00', '2020-12-20 19:00:00', 4, 8),
+        (DEFAULT, 120, 'ensamble', 'intermediate', '2020-12-24 16:00:00', '2020-12-24 19:00:00', 2, 3),
+        (DEFAULT, 80, 'ensamble', 'beginner', '2020-12-26 14:00:00', '2020-12-26 16:00:00', 4, 8),
+        (DEFAULT, 160, 'ensamble', 'intermediate', '2020-12-28 12:00:00', '2020-12-28 14:00:00', 3, 7),
+        (DEFAULT, 160, 'ensamble', 'intermediate', '2020-12-29 12:00:00', '2020-12-29 15:00:00', 3, 7),
+        (DEFAULT, 100, 'ensamble', 'intermediate', '2020-12-31 15:00:00', '2020-12-31 17:00:00', 4, 8),
+        (DEFAULT, 150, 'ensamble', 'intermediate', '2021-01-1 12:00:00', '2020-01-1 14:00:00', 3, 7),
+        (DEFAULT, 120, 'ensamble', 'intermediate', '2021-01-2 13:00:00', '2021-01-2 15:00:00', 4, 8),
+        (DEFAULT, 120, 'ensamble', 'intermediate', '2021-01-2 15:00:00', '2021-01-2 17:00:00', 3, 7)
         ;
+
+INSERT INTO student_music_lesson(music_lesson_id, student_id, person_id)
+VALUES  (20, 1, 1),
+        (20, 2, 4),
+        (20, 3, 5),
+        (20, 4, 6),
+        (21, 1, 1),
+        (21, 3, 5),
+        (22, 1, 1),
+        (22, 2, 4),
+        (23, 1, 1),
+        (23, 2, 4),
+        (23, 3, 5),
+        (23, 4, 6),
+        (24, 1, 1),
+        (24, 4, 6)
+        ;        
 
 INSERT INTO ensamble (ensamble_id, music_lesson_id, max_atendees, min_atendees, target_genre)
 VALUES  (DEFAULT, 4, 30, 10, 'punk'),
-        (DEFAULT, 11, 25, 15, 'soul')
+        (DEFAULT, 11, 25, 15, 'soul'),
+        (DEFAULT, 17, 20, 10, 'rock'),
+        (DEFAULT, 18, 10, 5, 'classic'),
+        (DEFAULT, 19, 15, 10, 'pop'),
+        (DEFAULT, 20, 4, 2, 'rock'),
+        (DEFAULT, 21, 5, 3, 'rock'),
+        (DEFAULT, 22, 10, 5, 'classic'),
+        (DEFAULT, 23, 5, 3, 'pop'),
+        (DEFAULT, 24, 10, 5, 'classic'),
+        (DEFAULT, 24, 6, 4, 'black-metal')
         ;
 
 INSERT INTO individual_lesson (individual_lesson_id, music_lesson_id, instrument_id)
@@ -99,14 +131,18 @@ VALUES  (DEFAULT, 1, 1),
         (DEFAULT, 5, 4),
         (DEFAULT, 7, 2),
         (DEFAULT, 9, 5),
-        (DEFAULT, 10, 3)
+        (DEFAULT, 10, 3),
+        (DEFAULT, 13, 3),
+        (DEFAULT, 14, 5),
+        (DEFAULT, 15, 1),
+        (DEFAULT, 16, 1)
         ;
 
 INSERT INTO group_lesson (group_lesson_id, music_lesson_id, number_of_places, min_enrolled_students, instrument_id)
 VALUES  (DEFAULT, 2, 30, 20, 4),
         (DEFAULT, 3, 25, 15, 1),
         (DEFAULT, 6, 30, 20, 2),
-        (DEFAULT, 8, 20, 10, 9)
+        (DEFAULT, 8, 20, 10, 9),
+        (DEFAULT, 12, 10, 5, 4)
         ;
 
-COMMIT;
