@@ -146,6 +146,7 @@ VALUES  (DEFAULT, 2, 30, 20, 4),
         (DEFAULT, 6, 30, 20, 2),
         (DEFAULT, 8, 20, 10, 9),
         (DEFAULT, 12, 10, 5, 4),
-        (DEFAULT, 26, 10, 5, 9)
+        (DEFAULT, 26, 10, 5, 9),
+        (DEFAULT, 27, 10, 5, 9)
         ;
 
