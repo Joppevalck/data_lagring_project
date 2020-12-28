@@ -155,7 +155,8 @@ CREATE TABLE music_lesson (
 
 CREATE TABLE rental_instrument (
  rental_instrument_id serial PRIMARY KEY,
- fee_per_mounth INT,
+ instrument_id INT NOT NULL,
+ fee_per_month INT,
  name VARCHAR(50),
  type VARCHAR(50),
  school_id INT REFERENCES school(school_id)
@@ -211,8 +212,10 @@ CREATE TABLE rental (
  rental_date DATE,
  return_date DATE NOT NULL,
  rental_instrument_id INT REFERENCES rental_instrument(rental_instrument_id),
+ instrument_id INT REFERENCES instrument(instrument_id),
  student_id INT,
- person_id INT
+ person_id INT,
+ terminated BOOLEAN
 );
 
 \i /hostfiles/PopulateData.sql
