@@ -1,3 +1,4 @@
+CREATE VIEW InstructorAmontOfLessons AS 
 SELECT m.instructor_id AS "Instructor ID",
     p.first_name AS "First name of Instructor",
     p.last_name AS "Last name",

@@ -1,3 +1,4 @@
+CREATE VIEW LessonsPerMonth AS 
 SELECT COALESCE(q.month, 'ALL') AS "Month",
     COALESCE(q.type, 'ALL') AS "Type of Lesson",
     q.count AS "Number of Lessons"

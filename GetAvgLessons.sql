@@ -1,3 +1,4 @@
+CREATE VIEW LessonsPerMonthAvg AS 
 SELECT COALESCE(q.type, 'ALL') AS "Type of Lesson",
     ROUND(q.avg, 2) AS "Number of Lessons"
 FROM (

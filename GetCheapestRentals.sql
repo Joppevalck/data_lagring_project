@@ -1,3 +1,4 @@
+CREATE VIEW LowestRentalFees AS 
 SELECT DISTINCT ri.name AS "Instrument",
     ri.fee_per_month AS "Fee per month",
     COUNT(ri.instrument_id) FILTER (WHERE r.terminated IS NOT false) AS "Available for rent",

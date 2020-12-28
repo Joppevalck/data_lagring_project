@@ -220,5 +220,6 @@ CREATE TABLE rental (
 
 \i /hostfiles/PopulateData.sql
 
+\i /hostfiles/CreateViews.sql
 COMMIT; 
 

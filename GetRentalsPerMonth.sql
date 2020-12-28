@@ -1,3 +1,4 @@
+CREATE VIEW InstrumentsRentedPerMonth AS 
 SELECT COALESCE(q.month, 'TOTAL') AS "Month", 
 COALESCE(q.instrument, 'ALL') AS "Instrument",
 q.count AS "Count of rentals"
