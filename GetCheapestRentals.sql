@@ -7,7 +7,7 @@ SELECT DISTINCT ri.name AS "Instrument",
             RIGHT JOIN group_lesson AS gl
             ON ml.music_lesson_id = gl.music_lesson_id
             WHERE gl.instrument_id = ri.instrument_id 
-                AND ml.start_time BETWEEN NOW() AND NOW() + interval '1 week'
+                AND ml.start_time > NOW()
             LIMIT 1
             )
         ) AS "Next group lesson"
