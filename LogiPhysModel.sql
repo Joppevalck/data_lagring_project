@@ -1,6 +1,3 @@
-BEGIN;
-
-\i /hostfiles/RestartDatabase.sql
 
 CREATE TABLE instrument (
  instrument_id  serial PRIMARY KEY,
@@ -217,9 +214,4 @@ CREATE TABLE rental (
  person_id INT,
  terminated BOOLEAN
 );
-
-\i /hostfiles/PopulateData.sql
-
-\i /hostfiles/CreateViews.sql
-COMMIT; 
 
