@@ -1,4 +1,4 @@
-CREATE VIEW EnsamblesHeldNextWeek AS 
+CREATE MATERIALIZED VIEW EnsamblesHeldNextWeek AS 
 SELECT TO_CHAR(m.start_time, 'Day') AS "Weekday",
     INITCAP(e.target_genre) AS "Genre",
     CASE

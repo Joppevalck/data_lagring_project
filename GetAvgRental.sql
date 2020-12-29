@@ -1,4 +1,3 @@
-CREATE VIEW InstrumentsRentedAvg AS 
 SELECT q.year AS "Year",
     COALESCE(q.instrument, 'ALL') AS "Instrument",
     q.rentals AS "Average rentals per month"
