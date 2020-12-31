@@ -22,11 +22,11 @@ class View:
             return "exit"
         
         if direction == "1":
-            ctrl.listInstruments()
+            self.ctrl.listInstruments()
         elif direction == "2":
-            ctrl.rentInstrument()
+            self.ctrl.rentInstrument()
         elif direction == "3":
-            ctrl.terminateRental()
+            self.ctrl.terminateRental()
 
         return "selected"
 

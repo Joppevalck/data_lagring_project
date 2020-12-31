@@ -9,6 +9,7 @@ class Model:
             host = DB_HOST,
             password = DB_PASS
         )
+        self.con.close()
     
     def listInstruments(self):
         print("instruments")

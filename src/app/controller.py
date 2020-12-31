@@ -6,10 +6,10 @@ class Controller:
         self.mdl = model
 
     def listInstruments(self):
-        mdl.listInstruments()
+        self.mdl.listInstruments()
     
     def rentInstrument(self):
-        mdl.rentInstrument()
+        self.mdl.rentInstrument()
     
     def terminateRental(self):
-        mdl.terminateRental()
+        self.mdl.terminateRental()
