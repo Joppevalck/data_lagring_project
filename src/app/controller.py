@@ -13,3 +13,6 @@ class Controller:
     
     def terminateRental(self):
         self.mdl.terminateRental()
+    
+    def close(self):
+        self.mdl.close()

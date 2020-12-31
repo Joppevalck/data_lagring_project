@@ -16,12 +16,16 @@ con = psycopg2.connect(
 # Cursor
 cur = con.cursor()
 
-cur.execute("SELECT * FROM ensamblesheldnextweek;")
+cur.execute("SELECT ri.name " +
+    "FROM rental_instrument AS ri " +
+    "NATURAL LEFT JOIN rental AS r " +
+    "WHERE r.terminated IS NOT false;"
+    )
 
 rows = cur.fetchall()
 
 for r in rows:
-    print(f"Weekday: {r[0]} \t| Genre: {r[1]} \t| Seats: {r[2]}")
+    print(f"{r[0]}")
 
 cur.close()
 

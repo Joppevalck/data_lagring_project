@@ -19,6 +19,7 @@ class View:
         direction = input("Choose one, to exit write q\n")
 
         if direction == "q":
+            self.ctrl.close()
             return "exit"
         
         if direction == "1":
