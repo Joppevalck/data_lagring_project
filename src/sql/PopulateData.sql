@@ -39,20 +39,20 @@ VALUES  (DEFAULT, 'String', 'Guitar'),
         (DEFAULT, 'Wind', 'Trumpet')
         ;
 
-INSERT INTO rental_instrument (rental_instrument_id, instrument_id, fee_per_month, type, name, school_id)
-VALUES  (DEFAULT, 1, 300, 'String', 'Guitar', 1),
-        (DEFAULT, 2, 500, 'Keyboard', 'Piano', 1),
-        (DEFAULT, 9, 150, 'Wind', 'Trumpet', 1),
-        (DEFAULT, 6, 200, 'String', 'Violin', 1),
-        (DEFAULT, 3, 500, 'Percussion', 'Drums', 1),
-        (DEFAULT, 3, 500, 'Percussion', 'Drums', 1),
-        (DEFAULT, 6, 200, 'String', 'Violin', 1),
-        (DEFAULT, 1, 300, 'String', 'Guitar', 1),
-        (DEFAULT, 9, 150, 'Wind', 'Trumpet', 1),
-        (DEFAULT, 8, 100, 'Woodwind', 'Flute', 1),
-        (DEFAULT, 1, 300, 'String', 'Guitar', 1),
-        (DEFAULT, 3, 500, 'Percussion', 'Drums', 1),
-        (DEFAULT, 1, 300, 'String', 'Guitar', 1)
+INSERT INTO rental_instrument (rental_instrument_id, instrument_id, fee_per_month, type, name, brand, school_id)
+VALUES  (DEFAULT, 1, 300, 'String', 'Guitar', 'Fancybrand', 1),
+        (DEFAULT, 2, 500, 'Keyboard', 'Piano', 'Boarders', 1),
+        (DEFAULT, 9, 150, 'Wind', 'Trumpet', 'InstrumentsAB', 1),
+        (DEFAULT, 6, 200, 'String', 'Violin', 'Fancybrand', 1),
+        (DEFAULT, 3, 500, 'Percussion', 'Drums', 'Coolbrand', 1),
+        (DEFAULT, 3, 500, 'Percussion', 'Drums', 'Coolbrand', 1),
+        (DEFAULT, 6, 200, 'String', 'Violin', 'InstrumentsAB', 1),
+        (DEFAULT, 1, 300, 'String', 'Guitar', 'Fancybrand', 1),
+        (DEFAULT, 9, 120, 'Wind', 'Trumpet', 'InstrumentsAB', 1),
+        (DEFAULT, 8, 100, 'Woodwind', 'Flute', 'Fancybrand', 1),
+        (DEFAULT, 1, 300, 'String', 'Guitar', 'Coolbrand', 1),
+        (DEFAULT, 3, 500, 'Percussion', 'Drums', 'Fancybrand', 1),
+        (DEFAULT, 1, 300, 'String', 'Guitar', 'InstrumentsAB', 1)
         ;
 
 INSERT INTO rental (rental_id, rental_date, return_date, rental_instrument_id, instrument_id, student_id, person_id, terminated)

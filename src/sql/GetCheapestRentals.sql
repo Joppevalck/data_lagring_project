@@ -1,6 +1,9 @@
 CREATE OR REPLACE VIEW LowestRentalFees AS 
 SELECT DISTINCT ri.name AS "Instrument",
-    ri.fee_per_month AS "Fee per month",
+    COALESCE (
+        MIN(ri.fee_per_month) FILTER (WHERE r.terminated IS NOT false),
+        MIN(ri.fee_per_month)
+        ) AS "Fee per month",
     COUNT(ri.instrument_id) FILTER (WHERE r.terminated IS NOT false) AS "Available for rent",
     COALESCE((
             SELECT ml.start_time
@@ -14,6 +17,6 @@ SELECT DISTINCT ri.name AS "Instrument",
         ) AS "Next group lesson"
 FROM rental_instrument AS ri
 NATURAL LEFT OUTER JOIN rental AS r
-GROUP BY (ri.name, ri.fee_per_month, ri.instrument_id)
-ORDER BY ri.fee_per_month
+GROUP BY (ri.name, ri.instrument_id)
+ORDER BY "Fee per month"
 LIMIT 3;

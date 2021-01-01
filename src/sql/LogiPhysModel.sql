@@ -156,6 +156,7 @@ CREATE TABLE rental_instrument (
  fee_per_month INT,
  name VARCHAR(50),
  type VARCHAR(50),
+ brand VARCHAR(50), 
  school_id INT REFERENCES school(school_id)
 );
 
