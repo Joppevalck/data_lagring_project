@@ -1,8 +1,9 @@
 import controller
 
+# View of the soundgood application
 class View:
 
-    # Constructor, sets controller
+    # On creation, sets controller
     def __init__(self, controller):
         self.ctrl = controller
 
@@ -10,16 +11,17 @@ class View:
     def help(self):
         print("\tlist [instrument type] \t\t\t\tList Rental Instruments, needs second argument to specify which instrument type")
         print("\trent [student id] [rental instrument id] \tRent Instrument")
-        print("\tterminate \t\t\t\t\tTerminate Rental")
+        print("\tterminate [student id] \t\t\t\tTerminate Rental")
         print("\thelp \t\t\t\t\t\tInformation of commands")
         print("\tq \t\t\t\t\t\tExit program")
-        
-    def listInstruments(self, args):
+    
+    # Requests listing instruments
+    def list_instruments(self, args):
         if len(args) < 2:
             raise AttributeError("Need to write which instrument")
 
         # Fetch the rental instruments available
-        rows = self.ctrl.listInstruments(args[1])
+        rows = self.ctrl.list_instruments(args[1])
         
         # Temp print of instruments
         if rows:
@@ -30,16 +32,53 @@ class View:
         else:
             print("No rental instruments by that type")
 
-    def rentInstument(self, args):
+    # Requests a rental
+    def rent_instument(self, args):
         if len(args) < 3:
             raise AttributeError("Need to write which student and instrument")
 
-        rows = self.ctrl.rentInstrument(args[1], args[2])
+        self.ctrl.rent_instrument(args[1], args[2])
+        print("Rent successful")
+    
+    # Requests a termination
+    def terminate_rental(self, args):
+        if len(args) < 2:
+            raise AttributeError("Need to write which student")
+
+        options = self.ctrl.terminate_options(args[1])
+
+        if options:
+            print("")
+            for r in options:
+                print(f"ID: {r[0]}, Instrument: {r[1]}, Rental date: {r[2]}, Last return date: {r[3]}")
+            print("")
+        else:
+            print("Either there is no rentals of that student or invalid student id")
+            return
+
+        done = False
+        while not done:
+            try:
+                instrument_id =  int(input("\tWhich rental should be terminated? (Type the ID): ").strip())
+                done = True
+            except Exception:
+                print("Invalid input, try again")
+
+                
+        for r in options:
+            if r[0] == instrument_id:
+                self.ctrl.terminate_rental(instrument_id)
+                print("Termination successful")
+                return
+        print("No rental was terminated, no matching id, try again")
+
     # Lets user to input to select by options
     def command(self):
         user_input = input("> ")
         args = user_input.split()
 
+        if not args:
+            return ""
         try:
             if args[0] == "q":
                 print("Exiting...")
@@ -49,15 +88,17 @@ class View:
                 self.help()
 
             elif args[0] == "list":
-                self.listInstruments(args)
+                self.list_instruments(args)
 
             elif args[0] == "rent":
-                self.rentInstument(args)
-                print("Rent successful")
+                self.rent_instument(args)
+
             elif args[0] == "terminate":
-                self.ctrl.terminateRental()
+                self.terminate_rental(args)
+
             else:
                 print("Error: Invalid command, type help for information")
+        
         except Exception as e: 
             print(e)
         return ""

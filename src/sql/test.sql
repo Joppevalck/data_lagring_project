@@ -1,14 +1,5 @@
-SELECT
-CASE 
-    WHEN q.t = true THEN false
-    WHEN q.t = false THEN true
-END as available
-FROM (
-    SELECT r.terminated AS t
-    FROM rental as r
-    WHERE r.rental_instrument_id = 13
-    GROUP BY r.terminated, r.rental_date
-    ORDER BY r.rental_date DESC
-    LIMIT 1
-) AS q
-GROUP BY q.t;
+SELECT r.rental_id, ri.name, r.rental_date, r.return_date
+FROM rental AS r
+NATURAL LEFT OUTER JOIN rental_instrument AS ri
+WHERE r.student_id = 2 
+AND r.terminated = false;
