@@ -1,18 +1,15 @@
 import view
 import controller
-import model
+import soundgoodHandler
 
-m = model.Model(
-    "soundgood",
-    "postgres",
-    "db-soundgood",
-    "password"
+dbh = soundgoodHandler.SoundgoodHandler("soundgood",
+            "postgres",
+            "db-soundgood",
+            "password"
 )
-c = controller.Controller(m)
+c = controller.Controller(dbh)
 v = view.View(c)
 
 answer = ""
 while answer != "exit":
-    v.menu()
-    answer = v.select()
-    
+    answer = v.command()

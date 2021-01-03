@@ -57,14 +57,15 @@ VALUES  (DEFAULT, 1, 300, 'String', 'Guitar', 'Fancybrand', 1),
 
 INSERT INTO rental (rental_id, rental_date, return_date, rental_instrument_id, instrument_id, student_id, person_id, terminated)
 VALUES  (DEFAULT, '2020-01-07', '2020-05-07', 1, 1, 1, 1, true),
-        (DEFAULT, '2020-01-16', '2021-01-16', 2, 2, 2, 4, false),
+        (DEFAULT, '2020-01-16', '2021-01-16', 2, 2, 2, 4, true),
         (DEFAULT, '2020-01-21', '2020-07-15', 3, 9, 3, 5, true),
         (DEFAULT, '2020-01-29', '2021-01-29', 4, 6, 4, 6, false),
         (DEFAULT, '2020-03-02', '2021-03-02', 5, 3, 1, 1, false),
         (DEFAULT, '2020-03-23', '2021-03-23', 6, 3, 4, 6, false),
         (DEFAULT, '2020-04-12', '2021-04-12', 7, 6, 3, 5, false),
         (DEFAULT, '2020-05-07', '2021-05-07', 8, 1, 1, 1, false),
-        (DEFAULT, '2020-08-02', '2021-08-02', 9, 9, 3, 5, false)
+        (DEFAULT, '2020-08-02', '2021-08-02', 9, 9, 3, 5, false),
+        (DEFAULT, '2020-12-03', '2021-12-03', 1, 1, 2, 4, false)
         ;
 
 INSERT INTO music_lesson (music_lesson_id, price, type, level, start_time, end_time, instructor_id, person_id)
