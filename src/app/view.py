@@ -42,7 +42,7 @@ class View:
 
         try:
             if args[0] == "q":
-                self.ctrl.close()
+                print("Exiting...")
                 return "exit"
 
             elif args[0] == "help":
@@ -53,6 +53,7 @@ class View:
 
             elif args[0] == "rent":
                 self.rentInstument(args)
+                print("Rent successful")
             elif args[0] == "terminate":
                 self.ctrl.terminateRental()
             else:

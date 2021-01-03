@@ -13,3 +13,4 @@ v = view.View(c)
 answer = ""
 while answer != "exit":
     answer = v.command()
+

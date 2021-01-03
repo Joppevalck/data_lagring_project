@@ -5,35 +5,40 @@ class SoundgoodHandler:
 
 
     def __init__ (self, DB_NAME, DB_USER, DB_HOST, DB_PASS):
-        # Connection to database
-        self.con = psycopg2.connect(
-            dbname = DB_NAME,
-            user = DB_USER,
-            host = DB_HOST,
-            password = DB_PASS
-        )
+        try:
+            # Connection to database
+            self.con = psycopg2.connect(
+                dbname = DB_NAME,
+                user = DB_USER,
+                host = DB_HOST,
+                password = DB_PASS
+            )
+
+            # Cursor for database
+            self.cur = self.con.cursor()
+        except Exception as e:
+            raise Exception("Could not connect to database")
 
     # Executes given script
     def executeSQL(self, script):
-        try:
-            # Cursor for database
-            cur = self.con.cursor()
-        except Exception as e:
-            raise Exception("Could not connect to database")
         
         try:
             # Execute script
-            cur.execute(script)
+            self.cur.execute(script)
         except Exception as e:
             raise Exception(e)
         
         try:
             # Fetch result of query
-            rows = cur.fetchall()
+            rows = self.cur.fetchall()
         except Exception:
             rows = ""
-        # Close cursor
-        cur.close()
+
+        try:
+            # Commit changes to database
+            self.con.commit()
+        except Exception as e:
+            raise Exception(e)
 
         return rows
     
@@ -111,6 +116,10 @@ class SoundgoodHandler:
     def terminateRental(self):
         print("terminated rental")
 
-    def close(self):
+    def __del__(self):
         # Close connection to database
         self.con.close()
+
+        # Close cursor
+        self.cur.close()
+        
