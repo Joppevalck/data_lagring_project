@@ -27,6 +27,7 @@ class SoundgoodHandler:
             # Execute script
             self.cur.execute(script)
         except Exception as e:
+            self.con.rollback()
             raise Exception(e)
         
         try:
