@@ -36,7 +36,8 @@ class View:
     def rent_instument(self, args):
         if len(args) < 3:
             raise AttributeError("Need to write which student and instrument")
-
+        if int(args[1]) < 0 or int(args[2]) < 0:
+            raise AttributeError("Cannot have negative arguments")
         self.ctrl.rent_instrument(args[1], args[2])
         print("Rent successful")
     
