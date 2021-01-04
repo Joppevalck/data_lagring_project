@@ -1,12 +1,12 @@
-import soundgoodHandler
-import soundgoodModel
+import soundgood_handler
+import soundgood_model
 
 # Controlls the apps action between the database handler and model
 class Controller:
 
     # On creation, inits the model and assign its db handler
     def __init__ (self, dbhandler):
-        self.mdl = soundgoodModel.SoundgoodModel()
+        self.mdl = soundgood_model.SoundgoodModel()
         self.dbh = dbhandler
 
     # Returns a list of a specefic instrument

@@ -1,9 +1,9 @@
 import view
 import controller
-import soundgoodHandler
+import soundgood_handler
 
 # Sets the settings for the database and the couplings between layers
-dbh = soundgoodHandler.SoundgoodHandler("soundgood",
+dbh = soundgood_handler.SoundgoodHandler("soundgood",
             "postgres",
             "db-soundgood",
             "password"

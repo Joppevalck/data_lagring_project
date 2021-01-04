@@ -45,11 +45,10 @@ class SoundgoodHandler:
     
     # Returns all of the rental instruments available for rent
     def list_instruments(self, instrument):
-        query = """SELECT ri.rental_instrument_id, ri.fee_per_month, ri.brand 
-            FROM rental_instrument AS ri 
-            NATURAL LEFT JOIN rental AS r 
-            WHERE r.terminated IS NOT false 
-            AND ri.name = \'%s\';"""%instrument.capitalize()
+        query = """SELECT DISTINCT ri.rental_instrument_id, ri.fee_per_month, ri.brand 
+        FROM rental_instrument AS ri 
+        NATURAL LEFT JOIN (SELECT * FROM rental AS r WHERE r.terminated IS NOT true ORDER BY r.rental_date DESC) AS q
+            WHERE q.terminated IS NOT false AND ri.name = \'%s\';"""%instrument.capitalize()
 
         return self.execute_SQL(query)
 
