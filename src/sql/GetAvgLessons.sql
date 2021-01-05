@@ -5,6 +5,7 @@ FROM (
         COUNT(*) /12.0 AS avg,
         MIN(m.start_time) AS time
     FROM music_lesson AS m
+    WHERE EXTRACT(YEAR FROM m.start_time) = 2020
     GROUP BY 
         ROLLUP (m.type)
     ) AS q
