@@ -7,6 +7,7 @@ FROM (
         COUNT(*) AS count,
         MIN(m.start_time) AS time
     FROM music_lesson AS m
+    WHERE EXTRACT(YEAR FROM m.start_time) = 2020
     GROUP BY 
         ROLLUP (month),
         ROLLUP (m.type)
